@@ -3,7 +3,6 @@ package environment_creator;
 import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
-import javax.swing.JOptionPane;
 
 public class Environment_Creator {
 
@@ -13,12 +12,17 @@ public class Environment_Creator {
         File FileHtml;
         File FileJs;
         File FileCss;
+        File FileREADME;
+
+        
         private String AbsolutePath = "";
         private String AbsolutePathJS = "";
         private String AbsolutePathCSS = "";
         private String PathJs = "";
         private String PathCss = "";
         private String PathHtml = "";
+        private String PathReadme = "";
+
         private String Name;
         
         
@@ -26,13 +30,15 @@ public class Environment_Creator {
         FileJs = new File(PathJs);
         FileCss = new File(PathCss);
         FileHtml = new File(PathHtml);
-        
+        FileREADME = new File(PathReadme);
+
 
             try {
-                if(FileJs.createNewFile() && FileCss.createNewFile() && FileHtml.createNewFile()){
+                if(FileJs.createNewFile() && FileCss.createNewFile() && FileHtml.createNewFile() && FileREADME.createNewFile()){
                      System.out.println("The File "+FileJs.getName()+" has been created successfully . . . ");
                      System.out.println("The File "+FileCss.getName()+" has been created successfully . . . ");
                      System.out.println("The File "+FileHtml.getName()+" has been created successfully . . . ");
+                     System.out.println("The File "+FileREADME.getName()+" has been created successfully . . . ");
                 }   
             } catch (IOException ex) {
                 System.err.println("Error the file has not been created : "+ex);
@@ -50,6 +56,8 @@ public class Environment_Creator {
 
         
         PathHtml += AbsolutePath+"\\index.html";
+        PathReadme += AbsolutePath+"\\README.md";
+
         
         if(MainDirectory.mkdir()){
             System.out.println("The Directory has been created successfully . . . ");
